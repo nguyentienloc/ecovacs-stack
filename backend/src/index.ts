@@ -7,5 +7,5 @@ import httpServer from './httpServer';
 
 httpsServer();
 httpServer();
-// websocketServer();
+websocketServer();
 // mqttsServer().then(() => mqttClient());
