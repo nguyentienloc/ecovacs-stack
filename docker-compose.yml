@@ -42,7 +42,6 @@ services:
       - MYSQL_PASSWORD=dev
       - MYSQL_DATABASE=dev
       - TZ=America/New_York
-      - HOST_IP=34.87.117.40
     command: bash -c './generate_certs.sh && yarn install && yarn run dev'
     stdin_open: true
     restart: unless-stopped
