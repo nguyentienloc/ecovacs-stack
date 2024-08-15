@@ -6,6 +6,6 @@ import websocketServer from './websocketServer/websocketServer';
 import httpServer from './httpServer';
 
 httpsServer();
-httpServer();
-websocketServer();
-mqttsServer().then(() => mqttClient());
+// httpServer();
+// websocketServer();
+// mqttsServer().then(() => mqttClient());
