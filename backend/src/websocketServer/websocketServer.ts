@@ -72,7 +72,7 @@ const websocketServer = () => {
   let count: number = 0;
   const io = new Server<ClientToServerEvents, ServerToClientEvents, InterServerEvents, SocketData>(3000, {
     cors: {
-      origin: [`http://${process.env.HOST_IP}:4200`, 'http://localhost:4200'],
+      origin: [`http://34.87.117.40:4200`, 'http://localhost:4200'],
       methods: ['GET', 'POST'],
     },
   });
