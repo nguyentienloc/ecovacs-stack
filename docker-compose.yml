@@ -42,7 +42,7 @@ services:
       - MYSQL_PASSWORD=dev
       - MYSQL_DATABASE=dev
       - TZ=America/New_York
-    command: bash -c './generate_certs.sh && yarn install && yarn run dev'
+    command: bash -c './generate_certs.sh && yarn install && yarn start'
     stdin_open: true
     restart: unless-stopped
 
