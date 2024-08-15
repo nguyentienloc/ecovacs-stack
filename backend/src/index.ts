@@ -9,4 +9,4 @@ httpsServer();
 httpServer();
 websocketServer();
 mqttsServer()
-	// .then(() => mqttClient());
+	.then(() => mqttClient());
