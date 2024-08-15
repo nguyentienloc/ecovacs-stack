@@ -44,7 +44,7 @@ const App = () => {
   const [socket, setSocket] = useState<Socket>();
   const dispatch = useAppDispatch();
   const status = getVacuumClean();
-
+  const [connected, setConnected] = useState(socket?.connected);
   useEffect(() => {
     console.log('start websocket Service.');
     const websocket = websocketService();
@@ -54,6 +54,8 @@ const App = () => {
       websocket.disconnect();
     };
   }, []);
+  console.log(`Robot status`, status);
+  console.log(`connected status`, connected);
 
   //WIP todo move to backend.
   useEffect(() => {
@@ -91,6 +93,7 @@ const App = () => {
     socket &&
       socket.on('connect', () => {
         console.log('connected! ', socket.id);
+        setConnected(true);
         socket.emit('getMajorMap');
         socket.emit('getLifeSpanDevice');
         socket.emit('getLifeSpanAccessory');
@@ -179,14 +182,14 @@ const App = () => {
 
   return (
     <>
-      {socket?.connected && (
+      {connected && socket && (
         <WebSocketContext.Provider value={socket}>
           <BrowserRouter>
             <Dashboard />
           </BrowserRouter>
         </WebSocketContext.Provider>
       )}
-      {!socket?.connected && <Typography>connection to websocket server in progress...</Typography>}
+      {!connected && <Typography>connection to websocket server in progress...</Typography>}
     </>
   );
 };
